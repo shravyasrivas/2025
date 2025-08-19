@@ -285,4 +285,24 @@ how has my year been ig? im just making shit up atp
 
     controls.downloadBtn.addEventListener('click', () => {
       if (!canvas.width || !canvas.height) return;
-      const a = document.create
+      const a = document.createElement('a');
+      a.download = 'meme.png';
+      a.href = canvas.toDataURL('image/png');
+      a.click();
+    });
+
+    // Keyboard shortcuts: S to save, C to clear texts
+    window.addEventListener('keydown', (e) => {
+      if (e.key.toLowerCase() === 's') {
+        e.preventDefault();
+        controls.downloadBtn.click();
+      } else if (e.key.toLowerCase() === 'c') {
+        controls.topText.value = '';
+        controls.bottomText.value = '';
+        draw();
+      }
+    });
+  </script>
+</body>
+</html>
+
